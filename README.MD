@@ -1,0 +1,1 @@
+A simple GUI app to disable Drive Signature Enforcement and or load unsigned drivers, built with [winio-loader](https://github.com/Alice42069/winio-loader)

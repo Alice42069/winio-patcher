@@ -1,0 +1,15 @@
+[package]
+name = "winio-patcher"
+version = "0.1.0"
+authors = ["Alice42069"]
+repository = "https://github.com/Alice42069/winio-patcher"
+readme = "README.md"
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+winio-loader = { git = "https://github.com/Alice42069/winio-loader" }
+eframe = "0.31.1"
+rfd = "0.15.3"
+strum_macros = "0.27.1"
+strum = "0.27.1"
