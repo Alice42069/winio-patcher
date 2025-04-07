@@ -5,6 +5,8 @@ use std::{
     time::{Duration, Instant},
 };
 
+use winio_loader::{Error, WinIoLoader};
+
 use eframe::{
     egui::{
         Align, Button, CentralPanel, Color32, Context, Layout, RichText, TextEdit, ViewportBuilder,
@@ -12,10 +14,11 @@ use eframe::{
     },
     run_native, App, Frame, NativeOptions, Result,
 };
+
 use rfd::FileDialog;
+
 use strum::IntoDiscriminant;
 use strum_macros::EnumDiscriminants;
-use winio_loader::{Error, WinIoLoader};
 
 fn main() -> Result<()> {
     Command::new("cmd")
