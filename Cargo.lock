@@ -4770,7 +4770,7 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 [[package]]
 name = "winio-loader"
 version = "1.0.0"
-source = "git+https://github.com/Alice42069/winio-loader#5796d03b334cc0a2ec856391980878bb345616a3"
+source = "git+https://github.com/Alice42069/winio-loader#9c3764d1ff3717f2a786fcf7c598d8f95e0e49de"
 dependencies = [
  "memflow",
  "memflow-vdm",
