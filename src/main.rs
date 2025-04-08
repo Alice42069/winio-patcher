@@ -35,7 +35,6 @@ fn main() -> Result<()> {
         viewport: ViewportBuilder::default()
             .with_resizable(false)
             .with_inner_size([425.0, 350.0]),
-        centered: true,
         ..Default::default()
     };
 
@@ -89,19 +88,20 @@ impl App for WinIoPatcher {
                 ui.horizontal(|ui| {
                     ui.heading("DSE Status: ");
 
-                    if ui
-                        .add(Button::new(
-                            RichText::new(if self.winio_loader.dse {
-                                "Enabled"
-                            } else {
-                                "Disabled"
-                            })
-                            .heading(),
-                        ))
-                        .clicked()
-                    {
-                        self.set_dse(!self.winio_loader.dse);
-                    }
+                    match self.winio_loader.get_dse() {
+                        Ok(dse) => {
+                            if ui
+                                .add(Button::new(
+                                    RichText::new(if dse { "Enabled" } else { "Disabled" })
+                                        .heading(),
+                                ))
+                                .clicked()
+                            {
+                                self.set_dse(!dse);
+                            }
+                        }
+                        Err(e) => self.popup = Some(Popup::Error(e)),
+                    };
                 });
 
                 ui.collapsing(RichText::new("Driver").heading(), |ui| {
