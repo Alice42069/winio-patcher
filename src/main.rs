@@ -1,4 +1,4 @@
-#![windows_subsystem = "windows"]
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use std::{
     process::{Command, Stdio},
@@ -174,12 +174,13 @@ impl App for WinIoPatcher {
                     ));
 
                     ui.label(format!(
-                        "SeValidateImageHeader: {:X}",
-                        self.winio_loader.se_validate_image_header
-                    ));
-                    ui.label(format!(
                         "SeValidateImageData: {:X}",
                         self.winio_loader.se_validate_image_data
+                    ));
+
+                    ui.label(format!(
+                        "SeValidateImageHeader: {:X}",
+                        self.winio_loader.se_validate_image_header
                     ));
                 });
             });
